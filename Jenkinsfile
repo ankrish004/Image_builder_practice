@@ -49,8 +49,7 @@ pipeline{
                  docker push ankrish/$IMAGE_NAME:$IMAGE_TAG
                 '''
             }
-        } 
-        /* 
+        }  /* 
         stage{
             step{
                 withCredentials([usernameColonPassword(credentialsId: 'GIT_CRED', variable: 'GIT_CRED')]) {
