@@ -33,6 +33,7 @@ pipeline{
                 sh'''
                  echo "pushing the image to docker hub"
                  docker push ankrish/$IMAGE_NAME:${BUILD_NUMBER}
+                 echo "pushed"
                 '''
             }
         }  /* 
