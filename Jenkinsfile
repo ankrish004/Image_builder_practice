@@ -35,7 +35,7 @@ pipeline{
         stage('image build') {
             steps{
                 sh'''
-                docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG .
+                "docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG ."
                 echo "yeq!!"
                
                 '''
