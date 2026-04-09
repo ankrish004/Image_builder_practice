@@ -22,8 +22,8 @@ pipeline{
                     npm run build
                 '''
             }
-            
-        }
+         } 
+         
         stage("git checkout stage") {
             steps {
                 git branch: 'master',
