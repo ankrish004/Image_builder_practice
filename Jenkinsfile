@@ -4,6 +4,7 @@ pipeline{
     environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
         IMAGE_NAME = 'testapp'
+        DOCKERHUB_CREDENTIALS = credentials('ankrish-docker')
 
     }
     stages{
@@ -21,6 +22,7 @@ pipeline{
 
             steps{
                 sh'''
+                    echo "$DOCKERHUB_CREDENTIALS_PSW" | docker login -u "$DOCKERHUB_CREDENTIALS_USR" --password-stdin
                     docker build -t ankrish/$IMAGE_NAME:${BUILD_NUMBER} .
                     echo "yeq!!"
                
