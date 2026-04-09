@@ -40,7 +40,7 @@ pipeline{
             }
         }  
         stage{
-            step{
+            steps{
                 withCredentials([usernameColonPassword(credentialsId: 'GIT_CRED', variable: 'GIT_CRED')]) {
                     sh'''
                     cat deployment.yaml
