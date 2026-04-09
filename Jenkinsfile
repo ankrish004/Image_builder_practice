@@ -20,10 +20,11 @@ pipeline{
                     npm --version
                     npm ci
                     npm run build
+                    node --version
                 '''
             }
          } 
-         
+
         stage("git checkout stage") {
             steps {
                 git branch: 'master',
