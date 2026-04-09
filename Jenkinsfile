@@ -42,14 +42,15 @@ pipeline{
             }
         }
 
-        stage('Pushing to hub'){ 
-            step{
+        stage('Pushing to hub') { 
+            steps{
                 sh'''
                  echo "pushing the image to docker hub"
                  docker push ankrish/$IMAGE_NAME:$IMAGE_TAG
                 '''
             }
-        } /* 
+        } 
+        /* 
         stage{
             step{
                 withCredentials([usernameColonPassword(credentialsId: 'GIT_CRED', variable: 'GIT_CRED')]) {
