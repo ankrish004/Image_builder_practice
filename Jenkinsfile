@@ -39,7 +39,7 @@ pipeline{
                 '''
             }
         }  
-        stage{
+        stage('IMage update') {
             steps{
                 withCredentials([usernameColonPassword(credentialsId: 'GIT_CRED', variable: 'GIT_CRED')]) {
                     sh'''
