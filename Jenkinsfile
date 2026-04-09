@@ -37,7 +37,7 @@ pipeline{
             steps{
                 sh'''
                 docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG .
-                echo "yeq!! aredg"
+                echo "yeq!!"
                
                 '''
             }
