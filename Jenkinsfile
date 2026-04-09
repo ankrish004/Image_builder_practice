@@ -33,11 +33,16 @@ pipeline{
         }
 
         stage('image build') {
-            agent any
+            agent {
+                    docker {
+                        image 'docker:latest'
+                        args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    }
+                }
             steps{
                 sh'''
-                "docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG ."
-                echo "yeq!!"
+                    docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG .
+                    echo "yeq!!"
                
                 '''
             }
