@@ -7,22 +7,7 @@ pipeline{
 
     }
     stages{
-        stage('Build app') {
-        agent {
-            docker {
-                image 'node:18-alpine'
-                reuseNode true
-                }
-            }
-            
-            steps{
-                sh'''
-                    npm --version
-                    npm install
  
-                '''
-            }
-         } 
 
         stage("git checkout stage") {
             steps {
@@ -33,12 +18,7 @@ pipeline{
         }
 
         stage('image build') {
-            agent {
-                    docker {
-                        image 'docker:latest'
-                        args ' -u root -v /var/run/docker.sock:/var/run/docker.sock'
-                    }
-                }
+
             steps{
                 sh'''
                     docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG .
