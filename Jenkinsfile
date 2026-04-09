@@ -19,7 +19,7 @@ pipeline{
                 sh'''
                     npm --version
                     npm install
-                    
+                    npm start 
                     npm run build
                     node --version
                 '''
