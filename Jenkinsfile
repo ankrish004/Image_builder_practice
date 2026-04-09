@@ -43,11 +43,12 @@ pipeline{
             steps{
                 withCredentials([usernameColonPassword(credentialsId: 'GIT_CRED', variable: 'GIT_CRED')]) {
                     sh'''
-                    cat deployment.yaml
-                    sed -i "s|ankrish/testapp:.*|ankrish/testapp:${BUILD_NUMBER}|g" deployment.yaml
+                    cat kuber/deployment.yaml
+                    sed -i "s|ankrish/testapp:.*|ankrish/testapp:${BUILD_NUMBER}|g" kuber/deployment.yaml
                     git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                     git remote -v
                     git push https://github.com/ankrish004/Image_builder_practice.git HEAD:master
+                    
 
 
                     '''
