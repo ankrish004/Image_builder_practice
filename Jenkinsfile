@@ -47,7 +47,7 @@ pipeline{
                     sed -i "s|ankrish/testapp:.*|ankrish/testapp:${BUILD_NUMBER}|g" deployment.yaml
                     git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
                     git remote -v
-                    git push https://github.com/ankrish004/Image_builder_practice.git
+                    git push https://github.com/ankrish004/Image_builder_practice.git HEAD:master
 
 
                     '''
