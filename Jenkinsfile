@@ -47,7 +47,8 @@ pipeline{
                     git config user.email "jenkins@example.com"
                     cat kuber/deployment.yaml
                     sed -i "s|ankrish/testapp:.*|ankrish/testapp:${BUILD_NUMBER}|g" kuber/deployment.yaml
-                    git commit -m "pdated the deploy yaml "
+                    git add .
+                    git commit -m "update yaml"
                     git remote -v
                     git push https://github.com/ankrish004/Image_builder_practice.git HEAD:master
                     
