@@ -7,21 +7,22 @@ pipeline{
 
     }
     stages{
-        stage('Build app')
+        stage('Build app') {
         agent {
             docker {
                 image 'node:18-alpine'
                     reuseNode true
                 }
             }
-        {
-            step{
+            
+            steps{
                 sh'''
                     npm --version
                     npm ci
                     npm run build
                 '''
             }
+            
         }
         stage("git checkout stage") {
             steps {
