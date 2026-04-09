@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     environment {
-        IMAGE_TAG = '${BUILD_NUMBER}'
+        IMAGE_TAG = "${BUILD_NUMBER}"
         IMAGE_NAME = 'testapp'
 
     }
@@ -21,7 +21,7 @@ pipeline{
 
             steps{
                 sh'''
-                    docker build -t ankrish/$IMAGE_NAME:$IMAGE_TAG .
+                    docker build -t ankrish/$IMAGE_NAME:${BUILD_NUMBER} .
                     echo "yeq!!"
                
                 '''
@@ -32,7 +32,7 @@ pipeline{
             steps{
                 sh'''
                  echo "pushing the image to docker hub"
-                 docker push ankrish/$IMAGE_NAME:$IMAGE_TAG
+                 docker push ankrish/$IMAGE_NAME:${BUILD_NUMBER}
                 '''
             }
         }  /* 
