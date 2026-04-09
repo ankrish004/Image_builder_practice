@@ -43,9 +43,11 @@ pipeline{
             steps{
                 withCredentials([usernameColonPassword(credentialsId: 'GIT_CRED', variable: 'GIT_CRED')]) {
                     sh'''
+                    git config user.name "Jenkins CI"
+                    git config user.email "jenkins@example.com"
                     cat kuber/deployment.yaml
                     sed -i "s|ankrish/testapp:.*|ankrish/testapp:${BUILD_NUMBER}|g" kuber/deployment.yaml
-                    git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
+                    git commit -m "pdated the deploy yaml "
                     git remote -v
                     git push https://github.com/ankrish004/Image_builder_practice.git HEAD:master
                     
