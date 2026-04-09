@@ -11,7 +11,7 @@ pipeline{
         agent {
             docker {
                 image 'node:18-alpine'
-                    reuseNode true
+                reuseNode true
                 }
             }
             
@@ -19,7 +19,7 @@ pipeline{
                 sh'''
                     npm --version
                     npm install
-                    npm ci
+                    
                     npm run build
                     node --version
                 '''
